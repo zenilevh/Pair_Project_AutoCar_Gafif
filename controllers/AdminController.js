@@ -48,6 +48,9 @@ class AdminController {
     static editForm (req, res) {
 
     }
+    static editPost (req, res) {
+
+    }
     static invoices(req, res) {
 
     }

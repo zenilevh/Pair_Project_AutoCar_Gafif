@@ -9,6 +9,7 @@ routes.post('/register', UserController.registerPost)
 routes.get('/login', UserController.login)
 routes.post('/login', UserController.loginPost)
 routes.get('/logout', UserController.logout)
+routes.get('/buy', UserController.buy)
 
 //HALAMAN UTAMA JADI SATU SAMA ADMIN
 routes.get('/cars', CarController.userFindAll)
