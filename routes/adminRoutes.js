@@ -9,8 +9,11 @@ const CarController = require('../controllers/carController')
 routes.get('/login', AdminController.login)
 routes.post('/login', AdminController.loginPost)
 routes.get('/logout', AdminController.logout)
+routes.get('/add', AdminController.addForm)
+routes.get('/add', AdminController.addForm)
 
 //HALAMAN UTAMA JADI SATU SAMA USER
 routes.get('/cars', CarController.adminFindAll)
+
 
 module.exports = routes;

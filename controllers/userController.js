@@ -60,6 +60,9 @@ class UserController {
             }  
         })
     }
+    static buy (req, res) {
+        
+    }
 
     static invoices(req, res) {
 

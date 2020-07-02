@@ -39,7 +39,15 @@ class AdminController {
             }  
         })
     }
+    static addForm (req, res) {
 
+    }
+    static addPost (req, res) {
+        
+    }
+    static editForm (req, res) {
+
+    }
     static invoices(req, res) {
 
     }
