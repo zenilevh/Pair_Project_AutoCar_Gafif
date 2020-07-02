@@ -1,6 +1,18 @@
 const routes = require('express').Router();
-const Controller = require('../controllers/userController')
+const UserController = require('../controllers/userController')
+const CarController = require('../controllers/carController')
 
-// routes.get('/', Controller.findHome);
+
+//ROUTING REGISTER & LOGIN USER
+routes.get('/register', UserController.register)
+routes.post('/register', UserController.registerPost)
+routes.get('/login', UserController.login)
+routes.post('/login', UserController.loginPost)
+routes.get('/logout', UserController.logout)
+routes.get('/buy', UserController.buy)
+
+//HALAMAN UTAMA JADI SATU SAMA ADMIN
+routes.get('/cars', CarController.userFindAll)
+
 
 module.exports = routes;
