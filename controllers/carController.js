@@ -4,12 +4,31 @@ class CarController {
     static getHome (req, res) {
         res.render('home.ejs')
     }
-
-    adminFindAll () {
-
+    static adminFindAll (req, res) {
+        User.findAll({
+            where: {
+                role: 'Admin'
+            }
+        })
+        .then(function(data){
+            res.send(data)
+        })
+        .catch(function(err){
+            res.send(err)
+        })
     }
-    userFindAll () {
-
+    static userFindAll (req, res) {
+        User.findAll({
+            where: {
+                role: 'Buyer'
+            }
+        })
+        .then(function(data){
+            res.send(data)
+        })
+        .catch(function(err){
+            res.send(err)
+        })
     }
 }
 

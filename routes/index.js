@@ -23,7 +23,18 @@ function checkSessionAdmin(req, res, next){
     }
 }
 
-//FOR USER
+//ROUTING REGISTER & LOGIN USER
+routes.get('/register', UserController.register)
+routes.post('/register', UserController.registerPost)
+routes.get('/user/login', UserController.login)
+routes.post('/user/login', UserController.loginPost)
+routes.get('/logout', UserController.logout)
+
+//ROUTING LOGIN ADMIN
+routes.get('/admin/login', AdminController.login)
+routes.post('/admin/login', AdminController.loginPost)
+routes.get('/logout', AdminController.logout)
+
 routes.use(checkSessionUser) //==CEK SESI USER
 
 routes.use('/user', userRoutes);

@@ -40,10 +40,24 @@ class AdminController {
         })
     }
     static addForm (req, res) {
-
+        res.render('formAddCar.ejs')
     }
     static addPost (req, res) {
-        
+        let newCar = {
+            car_name: req.body.car_name,
+            type: req.body.type,
+            harga: req.body.harga,
+            stock: req.body.stock,
+            bodykit: req.body.bodykit,
+            imgURL: req.body.imgURL
+        }
+        Car.create(newCar)
+        .then(function(data){
+            res.redirect('admin/cars')
+        })
+        .catch(function(err){
+            res.send(err)
+        })
     }
     static editForm (req, res) {
 

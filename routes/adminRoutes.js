@@ -5,10 +5,7 @@ const CarController = require('../controllers/carController')
 
 // routes.get('/', Controller.findHome);
 
-//ROUTING LOGIN ADMIN
-routes.get('/login', AdminController.login)
-routes.post('/login', AdminController.loginPost)
-routes.get('/logout', AdminController.logout)
+
 routes.get('/add', AdminController.addForm)
 routes.get('/add', AdminController.addPost)
 routes.get('/add', AdminController.editForm)
