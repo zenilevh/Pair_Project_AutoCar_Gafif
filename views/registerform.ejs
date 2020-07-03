@@ -1,24 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>
-    <a href="/">Back to Home</a>
-    <form action="/register" method="POST">
-        <p>First Name</p>
-        <input type="text" name="name" placeholder="e.g. John Doe"> <br>
-        <p>Last Name</p>
-        <input type="text" name="name" placeholder="e.g. John Doe"> <br>
-        <p>Age</p>
-        <input type="number" name="age"> <br>
-        <p>Email</p>
-        <input type="text" name="email" placeholder="e.g. john@mail.com"> <br>
-        <p>Password</p>
-        <input type="password" name="password" placeholder="at least 8 characters"><br><br>
-        <button type="submit">Register!</button>
-    </form>
-</body>
-</html>
+<%- include('partials/header',{title:'Register Page'}) %>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                </ul>
+            </div>
+        </nav>
+        <form action="/register" method="POST">
+            <p>First Name</p>
+            <input type="text" name="first_name" placeholder="e.g. John"> <br>
+            <p>Last Name</p>
+            <input type="text" name="last_name" placeholder="e.g. Doe"> <br>
+            <p>Age</p>
+            <input type="number" name="age"> <br>
+            <label for="gender">Gender</label> <br><br>
+            <select name="gender" class="form-control" id="gender"> 
+            <option disabled selected>--- Select one ----</option>    
+            <option>Male</option>   
+            <option>Female</option>
+            </select> <br><br>
+            <p>Email</p>
+            <input type="text" name="email" placeholder="e.g. john@mail.com">
+            <br>
+            <p>Password</p>
+            <input type="password" name="password" placeholder="at least 8
+                characters"><br><br>
+            <button type="submit">Register!</button>
+        </form>
+    </body>
+
+    <%- include('partials/footer') %>

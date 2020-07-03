@@ -8,15 +8,8 @@ const UserController = require('../controllers/userController')
 
 routes.get('/', CarController.getHome);
 
-function checkSessionUser(req, res, next){
-    if (req.session.user) {
-        next()
-    } else {
-        res.send(`Unauthorized!`)
-    }
-}
-function checkSessionAdmin(req, res, next){
-    if (req.session.admin) {
+function checkSession(req, res, next){
+    if (req.session.user || req.session.admin) {
         next()
     } else {
         res.send(`Unauthorized!`)
@@ -28,22 +21,18 @@ routes.get('/register', UserController.register)
 routes.post('/register', UserController.registerPost)
 routes.get('/user/login', UserController.login)
 routes.post('/user/login', UserController.loginPost)
-routes.get('/logout', UserController.logout)
+routes.get('/user/logout', UserController.logout)
 
 //ROUTING LOGIN ADMIN
+routes.get('/secret/register', AdminController.register)
+routes.post('/secret/register', AdminController.registerPost)
 routes.get('/admin/login', AdminController.login)
 routes.post('/admin/login', AdminController.loginPost)
-routes.get('/logout', AdminController.logout)
+routes.get('/admin/logout', AdminController.logout)
 
-routes.use(checkSessionUser) //==CEK SESI USER
+routes.use(checkSession)
 
 routes.use('/user', userRoutes);
-routes.get('/invoices', UserController.invoices);
-
-//FOR ADMIN
-routes.use(checkSessionAdmin) //==CEK SESI ADMIN
-
 routes.use('/admin', adminRoutes);
-routes.get('/invoices', AdminController.invoices);
 
 module.exports = routes;

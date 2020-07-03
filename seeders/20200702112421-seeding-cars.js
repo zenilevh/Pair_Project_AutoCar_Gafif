@@ -32,6 +32,16 @@ module.exports = {
 
                 createdAt: new Date(),
                 updatedAt: new Date()
+            },
+            {
+                car_name: 'BMW',
+                type: 'X-5',
+                harga: 2000000000,
+                stock: 23,
+                bodykit: "lowerUpgrade",
+                imgURL: 'https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/788x525/quality/85/https://s.aolcdn.com/commerce/autodata/images/USD00BMS191C021001.jpg',
+                createdAt: new Date(),
+                updatedAt: new Date()
             }
         ], {});
     },

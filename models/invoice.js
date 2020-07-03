@@ -18,7 +18,13 @@ module.exports = (sequelize, DataTypes) => {
   Invoice.init({
     UserId: DataTypes.INTEGER,
     CarId: DataTypes.INTEGER,
-    shiping: DataTypes.STRING
+    shiping: DataTypes.DATE
+    // { 
+    //   type: DataTypes.DATE, 
+    //   validate: { 
+    //     isAfter: new Date() 
+    //   } 
+    // } 
   }, {
     sequelize,
     modelName: 'Invoice',

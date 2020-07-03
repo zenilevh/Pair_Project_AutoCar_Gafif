@@ -1,30 +1,42 @@
 const { Invoice, Car, User } = require('../models')
+const {Op} = require('sequelize')
+const converter = require('../helpers/converter')
 
 class CarController {
     static getHome (req, res) {
-        res.render('home.ejs')
+        const message = req.app.locals.message || null
+        delete req.app.locals.message
+        res.render('home.ejs',{alert: message})
     }
-    static adminFindAll (req, res) {
-        User.findAll({
+    static carAdminFindAll (req, res) {
+        Car.findAll({
             where: {
-                role: 'Admin'
-            }
+                stock: {
+                    [Op.gt]: 0
+                }
+            }  
         })
         .then(function(data){
-            res.send(data)
+            const message = req.app.locals.message || null
+            delete req.app.locals.message
+            res.render('adminCar.ejs',{cars: data, alert: message, converter})
         })
         .catch(function(err){
             res.send(err)
         })
     }
-    static userFindAll (req, res) {
-        User.findAll({
+    static carUserFindAll (req, res) {
+        Car.findAll({
             where: {
-                role: 'Buyer'
-            }
+                stock: {
+                    [Op.gt]: 0
+                }
+            }  
         })
         .then(function(data){
-            res.send(data)
+            const message = req.app.locals.message || null
+            delete req.app.locals.message
+            res.render('buyerCar.ejs', {data, alert: message, converter})
         })
         .catch(function(err){
             res.send(err)
