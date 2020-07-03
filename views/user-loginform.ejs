@@ -27,18 +27,19 @@
 
             </div>
         </nav>
-        <% if (alert) {%> 
+        <% if (alert) {%>
             <span style="color:green;"><%=alert%></span>
-        <%} %> <br>
-        <form action="/user/login" method="POST">
-            <p>Email</p>
-            <input type="text" name="email" placeholder="e.g. john@mail.com">
-            <br>
-            <p>Password</p>
-            <input type="password" name="password" placeholder="at least 8
-                characters"><br><br>
-            <button type="submit">Login</button>
-        </form>
-        <p><em>If you dont have .</em></p>
+            <%} %> <br>
+                <form action="/user/login" method="POST">
+                    <p>Email</p>
+                    <input type="text" name="email" placeholder="e.g.
+                            john@mail.com">
+                    <br>
+                    <p>Password</p>
+                    <input type="password" name="password" placeholder="max
+                            8 charac"><br><br>
+                    <button type="submit">Login</button>
+                </form>
+                <p><em>If you dont have Login id , please register first .</em></p>
     </body>
     <%- include('partials/footer') %>

@@ -13,36 +13,49 @@
                 </ul>
             </div>
         </nav>
-        <% if (alert) {%> 
+        <% if (alert) {%>
             <span style="color:green;"><%=alert%></span>
-        <%} %> <br>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">id Car</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Bodykit</th>
-                    <th scope="col">imgURL</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (i = 0; i < data.length; i++) {%>
-                    <tr>
-                        <td><%=data[i].id%></td>
-                        <td><%=data[i].fullData%></td>
-                        <td><%=converter(data[i].harga)%></td>
-                        <td><%=data[i].unitStock%></td>
-                        <td><%=data[i].bodykit%></td>
-                        <td><img src="<%=data[i].imgURL%>"></td>
-                        <td>
-                            <a class="btn btn-danger" href= '/user/buy/<%=data[i].id%>' role="button">BUY</a>
-                        </td>
-                    </tr>
-                    <%} %>        
-            </tbody>
-        </table>
+            <%} %> <br>
 
-        <%- include('partials/footer') %>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">id Car</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Bodykit</th>
+                            <th scope="col">imgURL</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (i= 0; i <data.length; i++) {%>
+                            <tr>
+                                <td>
+                                    <%=data[i].id%>
+                                </td>
+                                <td>
+                                    <%=data[i].fullData%>
+                                </td>
+                                <td>
+                                    <%=converter(data[i].harga)%>
+                                </td>
+                                <td>
+                                    <%=data[i].unitStock%>
+                                </td>
+                                <td>
+                                    <%=data[i].bodykit%>
+                                </td>
+                                <td><img src="<%=data[i].imgURL%>"></td>
+                                <td>
+                                    <a class="btn
+                                                                btn-danger" href='/user/buy/<%=data[i].id%>' role="button">BUY</a>
+                                </td>
+                            </tr>
+                            <%} %>
+                    </tbody>
+                </table>
+                <a href="/user/logout">logout</a>
+                <%- include('partials/footer')
+                                                    %>

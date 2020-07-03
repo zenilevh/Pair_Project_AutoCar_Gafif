@@ -28,7 +28,7 @@ module.exports = {
                 harga: 500000000,
                 stock: 50,
                 bodykit: "HighUpgrade",
-                imgURL: "https://s3.amazonaws.com/carmudi-blogs/carmudi-id/wp-content/uploads/2019/12/30163152/Mazda_RX-8_on_freeway-750x375.jpg",
+                imgURL: "https://bringatrailer.com/wp-content/uploads/2018/05/1526412271a706b9fe02e0b520180513_173005.jpg?w=940",
 
                 createdAt: new Date(),
                 updatedAt: new Date()

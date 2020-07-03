@@ -22,8 +22,11 @@ class UserController {
                 res.redirect('/user/login')
             })
             .catch(function(err) {
-                console.log(err)
-                res.send(err)
+                let msg = []
+                err.errors.forEach(el => {
+                    msg.push(el.message)
+                })
+                res.send(msg);
             })
     }
     static login(req, res) {
