@@ -2,7 +2,7 @@
 
     <body>
         <h1>FORM BUY CARS</h1>
-       
+
         <hr>
         <table class="table">
             <thead class="thead-dark">
@@ -15,22 +15,33 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><%=cars.id%></td>
-                    <td><%=cars.fullData%></td>
-                    <td><%=converter(cars.harga)%></td>
-                    <td><%=cars.bodykit%></td>    
+                    <td>
+                        <%=cars.id%>
+                    </td>
+                    <td>
+                        <%=cars.fullData%>
+                    </td>
+                    <td>
+                        <%=converter(cars.harga)%>
+                    </td>
+                    <td>
+                        <%=cars.bodykit%>
+                    </td>
                 </tr>
             </tbody>
         </table>
         <form action="/user/buy/<%=cars.id%>" method="POST">
-            <select name="UserId" id="UserId"> <option disabled selected>---Users---</option> 
-                <% data.forEach(item =>{ %> 
-                    <option name="<%=item.id%>" value="<%=item.id%>"><%= item.fullName %></option> 
-                <% }) %> 
-            </select> 
-        <label for="shiping">Shiping Date</label>
-        <input type="date" name="shiping" id="shiping">
+            <select name="UserId" id="UserId"> <option disabled
+                                    selected>---Users---</option>
+                                <% data.forEach(item=>{ %>
+                                    <option name="<%=item.id%>" value="<%=item.id%>"><%=
+                                                item.fullName %></option>
+                                            <% }) %>
+                                            </select>
+            <label for="shiping">Shiping Date</label>
+            <input type="date" name="shiping" id="shiping">
 
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            <button type="submit" class="btn
+                                                btn-primary mb-2">Submit</button>
         </form>
         <%- include('partials/footer') %>

@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "postgres",
-        "password": "postgres",
+        "password": "Metalgear1",
         "database": "autocar_gafif",
         "host": "127.0.0.1",
         "dialect": "postgres"
@@ -14,10 +14,10 @@
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "database_production",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+        "username": "hbibhyfieobgiv",
+        "password": "dc45403912325364c2cfe52598018564c1899644b84a1fb30afe8a1d35de81d5",
+        "database": "db8trfevf836b5",
+        "host": "ec2-34-197-188-147.compute-1.amazonaws.com",
+        "dialect": "postgres"
     }
 }
