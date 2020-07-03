@@ -4,15 +4,12 @@ const CarController = require('../controllers/carController')
 
 
 //ROUTING REGISTER & LOGIN USER
-routes.get('/register', UserController.register)
-routes.post('/register', UserController.registerPost)
-routes.get('/login', UserController.login)
-routes.post('/login', UserController.loginPost)
-routes.get('/logout', UserController.logout)
-routes.get('/buy', UserController.buy)
+
+routes.get('/buy/:id', UserController.buy)
+routes.post('/buy/:id', UserController.buyPost)
 
 //HALAMAN UTAMA JADI SATU SAMA ADMIN
-routes.get('/cars', CarController.userFindAll)
+routes.get('/cars', CarController.carUserFindAll)
 
 
 module.exports = routes;

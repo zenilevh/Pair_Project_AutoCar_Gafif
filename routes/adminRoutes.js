@@ -5,18 +5,17 @@ const CarController = require('../controllers/carController')
 
 // routes.get('/', Controller.findHome);
 
-//ROUTING LOGIN ADMIN
-routes.get('/login', AdminController.login)
-routes.post('/login', AdminController.loginPost)
-routes.get('/logout', AdminController.logout)
-routes.get('/add', AdminController.addForm)
-routes.get('/add', AdminController.addPost)
-routes.get('/add', AdminController.editForm)
-routes.get('/add', AdminController.editPost)
-routes.get('/add', AdminController.invoices)
+routes.get('/userList/:id', AdminController.userList)
+routes.get('/cars/add', AdminController.addForm)
+routes.post('/cars/add', AdminController.addPost)
+routes.get('/cars/edit/:id', AdminController.editForm)
+routes.post('/cars/edit/:id', AdminController.editPost)
+routes.get('/cars/delete/:id', AdminController.delete)
+routes.get('/invoice', AdminController.invoices)
+routes.post('/invoice', AdminController.invoicePost)
 
 //HALAMAN UTAMA JADI SATU SAMA USER
-routes.get('/cars', CarController.adminFindAll)
+routes.get('/cars', CarController.carAdminFindAll)
 
 
 module.exports = routes;

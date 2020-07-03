@@ -14,44 +14,44 @@
                             Admin Option Choice
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" aria-placeholder="woy">
-                            
+                            <a class="dropdown-item" href="/admin/userList">See
+                                Users List</a>
                             <a class="dropdown-item" href="/admin/cars/add">Add
                                 New Cars</a>
-                            <a class="dropdown-item" href="/admin/logout">Log Out</a>
+                            <a class="dropdown-item" href="/admin/logout">Logout</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </nav>
-        <% if (alert) {%> 
-            <span style="color:green;"><%=alert%></span>
-        <%} %> <br>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <div class="mx-auto" style="width: 200px;">
+                <h5><%=cars.fullData%></h5>
+            </div>
+        </div>
+
+        <br><br><br>
+        <div class="mx-auto" style="width: 200px;">
+            <h1 class="display-4">user List</h1>
+        </div>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">id Car</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Bodykit</th>
-                    <th scope="col">imgURL</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
                 </tr>
             </thead>
             <tbody>
-                <% for (i = 0; i < cars.length; i++) {%>
+                <% invoices.forEach(item =>{ %> 
                     <tr>
-                        <td><%=cars[i].id%></td>
-                        <td><%=cars[i].fullData%></td>
-                        <td><%=converter(cars[i].harga)%></td>
-                        <td><%=cars[i].unitStock%></td>
-                        <td><%=cars[i].bodykit%></td>
-                        <td><img src="<%=cars[i].imgURL%>"></td>
-                        <td>
-                            <a class="btn btn-primary" href="/admin/cars/edit/<%=cars[i].id%>" role="button">EDIT</a> | <a class="btn btn-danger" href="/admin/cars/delete/<%=cars[i].id%>" onclick="return confirm`('WARNING: Are You Sure Want to Delete this Car?')`" role="button">DELETE</a> <a class="btn btn-dark" href="/admin/userList/<%=cars[i].id%>" role="button">SEE BUYER</a>
-                        </td>
+                        <td><%=item.User.first_name%></td>
+                        <td><%=item.User.last_name%></td>
+                        <td><%=item.User.age%></td>
+                        <td><%=item.User.gender%></td>
                     </tr>
-                <%} %>       
+                <% }) %> 
             </tbody>
         </table>
 

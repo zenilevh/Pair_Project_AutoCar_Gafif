@@ -1,15 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/header',{title:'Admin Add Cars Page'}) %>
 
-<head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <body>
+        <h1 class="display-4">Form Add new Car</h1>
+        <a href="/">Back to HomePage</a>
+        <hr>
+        <form action="/admin/cars/add" method="POST">
+            <div class="form-group">
+                <label>Name Car</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="MAZDA, ..." name='car_name'>
+            </div>
+            <div class="form-group">
+                <label>Type</label>
+                <input type="text" class="form-control" placeholder="RX-8" name='type'>
+            </div>
+            <div class="form-group">
+                <label>Harga</label>
+                <input type="number" class="form-control" placeholder="Rp.1000.000.000" name='harga'>
+            </div>
+            <div class="form-group">
+                <label>Stock</label>
+                <input type="number" class="form-control" placeholder="50" name='stock'>
+            </div>
+            <div class="form-group">
+                <label>BodyKit</label>
+                <input type="text" class="form-control" placeholder="LowerRacing" name='bodykit'>
+            </div>
+            <div class="form-group">
+                <label>imgURL</label>
+                <input type="url" class="form-control" placeholder="LowerRacing" name='imgURL'>
+            </div>
 
-<body>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
-</body>
-
-</html>
+        <%- include('partials/footer') %>

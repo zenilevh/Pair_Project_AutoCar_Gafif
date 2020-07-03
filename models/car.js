@@ -13,17 +13,85 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             Car.belongsToMany(models.User, { through: 'Invoices' });
         }
+        get fullData() {
+            return `${this.car_name} ${this.type}`  
+        }
+        get unitStock() {
+          return `${this.stock} units`  
+        }
     };
     Car.init({
-        car_name: DataTypes.STRING,
-        type: DataTypes.STRING,
+        car_name: {
+            type: DataTypes.STRING,
+            allowNull:false,
+            validate:{
+              notNull: {
+                args: true,
+                msg: 'Car Name is Required!'
+              },
+              notEmpty:{
+                args: true,
+                msg: "Car Name is Required!"
+              }
+            }  
+        },
+        type: {
+            type: DataTypes.STRING,
+            allowNull:false,
+            validate:{
+              notNull: {
+                args: true,
+                msg: 'Type is Required!'
+              },
+              notEmpty:{
+                args: true,
+                msg: "Type is Required!"
+              }
+            }  
+        },
         harga: DataTypes.INTEGER,
         stock: DataTypes.INTEGER,
-        bodykit: DataTypes.STRING,
-        imgURL: DataTypes.STRING
-    }, {
-        sequelize,
-        modelName: 'Car',
+        bodykit: {
+            type: DataTypes.STRING,
+            allowNull:false,
+            validate:{
+              notNull: {
+                args: true,
+                msg: 'Body Kit is Required!'
+              },
+              notEmpty:{
+                args: true,
+                msg: "Body Kit is Required!"
+              }
+            }  
+        },
+        imgURL: {
+            type: DataTypes.STRING,
+            allowNull:false,
+            validate:{
+                isUrl: {
+                    args: true,
+                    msg: 'Format URL tidak sesuai!'
+                },
+                notNull: {
+                    args: true,
+                    msg: 'Image URL is Required!'
+                },
+                notEmpty:{
+                    args: true,
+                    msg: "Image URL is Required!"
+                }
+            }  
+        }
+    }, 
+    {
+      sequelize,
+      modelName: 'Car',
     });
+
+    // Car.addHook('beforeCreate', function(instance, option){
+    //   instance.stock = instance.stock + 'unit'
+    // })
+
     return Car;
 };

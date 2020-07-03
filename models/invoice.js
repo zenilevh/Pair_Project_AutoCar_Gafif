@@ -11,12 +11,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Invoice.belongsTo(models.User)
+      Invoice.belongsTo(models.Car)
     }
   };
   Invoice.init({
     UserId: DataTypes.INTEGER,
     CarId: DataTypes.INTEGER,
-    shiping: DataTypes.STRING
+    shiping: DataTypes.DATE
+    // { 
+    //   type: DataTypes.DATE, 
+    //   validate: { 
+    //     isAfter: new Date() 
+    //   } 
+    // } 
   }, {
     sequelize,
     modelName: 'Invoice',
